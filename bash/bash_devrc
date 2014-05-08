@@ -1,0 +1,46 @@
+Color_Off="\[\033[0m\]"       # Text Reset
+IBlack="\[\033[0;90m\]"       # Black
+Green="\[\033[0;32m\]"        # Green
+LGreen="\[\033[01;32m\]"      # Light Green
+IRed="\[\033[0;91m\]"         # Red
+Yellow="\[\033[0;33m\]"       # Yellow
+
+function we_are_in_git_work_tree {
+    git rev-parse --is-inside-work-tree &> /dev/null
+}
+
+function parse_git_status {
+    if we_are_in_git_work_tree
+    then 
+      local ST=$(git status -uno --short 2> /dev/null)
+      if [ -n "$ST" ]
+      then echo -n $IRed$(__git_ps1 "{%s}")
+      else echo -n $Green$(__git_ps1 "(%s)")
+      fi
+    fi
+}
+
+set_bash_prompt() {
+  PS1="$IBlack\t $LGreen\u@\h:$(parse_git_status)$Color_Off$Yellow\w$Color_Off\$(if [[ \$? != 0 ]]; then echo \"\[\033[01;31m\]\342\234\227 \"; fi)$Color_Off\$ "
+}
+PROMPT_COMMAND=set_bash_prompt
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias tmux="TERM=screen-256color-bce tmux"
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
