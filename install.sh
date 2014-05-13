@@ -5,11 +5,13 @@ set -e
 
 INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+
 install_debs() {
   echo "++ Installing debs ++"
   sudo apt-get update
   sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux
 }
+
 
 install_vim() {
   echo "++ Installing vim config ++"
@@ -72,12 +74,14 @@ install_vim() {
   cd $INSTALL_DIR
 }
 
+
 install_font() {
   echo "++ Installing Fonts ++"
   mkdir -p ~/.fonts
   cp $INSTALL_DIR/fonts/Inconsolata-dz\ for\ Powerline.otf ~/.fonts/
   fc-cache -vf ~/.fonts
 }
+
 
 install_zsh() {
   echo "++ Installing ZSH config ++"
@@ -95,9 +99,19 @@ install_zsh() {
 }
 
 
+install_tmux() {
+  echo "++ Installing tmux config ++"
+  if [[ -e ~/.tmux.conf ]]; then
+    rm ~/.tmux.conf
+  fi
+  ln -s $INSTALL_DIR/tmux/tmux.conf ~/.tmux.conf
+}
+
+
 install_debs
 install_vim
 install_font
 install_zsh
+install_tmux
 
 echo "All Done"
