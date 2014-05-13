@@ -8,7 +8,7 @@ INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_debs() {
   echo "++ Installing debs ++"
   sudo apt-get update
-  sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs npm zsh tmux
+  sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux
 }
 
 install_vim() {

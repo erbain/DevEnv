@@ -69,6 +69,9 @@ export PATH="/sbin:/usr/sbin:/home/ewan/bin:/user/sbin:/usr/local/bin:/usr/bin:/
 export ARCHFLAGS="-arch x86_64"
 
 # ssh
- export SSH_KEY_PATH="~/.ssh/id_dsa"
+export SSH_KEY_PATH="~/.ssh/id_dsa"
 
- alias tmux="TERM=screen-256color-bce tmux" 
+alias tmux="TERM=screen-256color-bce tmux" 
+
+bindkey "^[[5~" history-beginning-search-backward
+bindkey "^[[6~" history-beginning-search-forward
