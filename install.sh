@@ -14,7 +14,7 @@ install_debs() {
 
 
 install_vim() {
-  echo "++ Installing vim config ++"
+  echo "++ Installing vim config ++ $INSTALL_DIR"
 
   if [[ -d "$INSTALL_DIR/vim" ]]; then
     cd $INSTALL_DIR/vim
@@ -27,7 +27,7 @@ install_vim() {
     cd $INSTALL_DIR/vim/bundle/vundle
     git pull
   else
-    git clone https://github.com/gmarik/vundle.git ./vim/bundle/vundle
+    git clone https://github.com/gmarik/vundle.git $INSTALL_DIR/vim/bundle/vundle
   fi
 
   cd $INSTALL_DIR
