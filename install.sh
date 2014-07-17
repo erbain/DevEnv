@@ -89,7 +89,7 @@ install_zsh() {
     cd $INSTALL_DIR/zsh/oh-my-zsh
     git pull
   else
-    git clone git://github.com/robbyrussell/oh-my-zsh.git $INSTALL_DIR/zsh/oh-my-zsh
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $INSTALL_DIR/zsh/oh-my-zsh
     ln -si $INSTALL_DIR/zsh/oh-my-zsh ~/.oh-my-zsh
     ln -si $INSTALL_DIR/zsh/zshrc ~/.zshrc
   fi
