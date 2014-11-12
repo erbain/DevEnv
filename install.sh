@@ -99,6 +99,23 @@ install_zsh() {
 }
 
 
+install_i3() {
+  echo "++ Installing i3 config ++"
+  if [[ -d ~/.i3 ]]; then
+    read -p ".i3 folder exists, delete it and continue? " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$  ]]; then
+      echo 'Removing .i3 folder'
+      rm -Rf ~/.i3
+    else
+      echo "Quit without deleting .i3 folder"
+      exit
+    fi
+  fi
+  cp -R $INSTALL_DIR/i3 ~/.i3
+}
+
+
 install_tmux() {
   echo "++ Installing tmux config ++"
   if [[ -e ~/.tmux.conf ]]; then
@@ -108,10 +125,11 @@ install_tmux() {
 }
 
 
-install_debs
-install_vim
-install_font
-install_zsh
-install_tmux
+#install_debs
+#install_vim
+#install_font
+#install_zsh
+#install_tmux
+install_i3
 
 echo "All Done"
