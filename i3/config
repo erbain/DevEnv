@@ -22,6 +22,10 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound vo
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -- -5% #decrease sound volume
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 15
+bindsym XF86MonBrightnessDown exec xbacklight -dec 15
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
