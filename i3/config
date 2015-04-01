@@ -34,6 +34,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym Control+Mod1+l exec --no-startup-id i3lock -i /home/ewan/.i3/wallpaper.png
 bindsym Control+Mod1+s exec --no-startup-id i3lock -i /home/ewan/.i3/wallpaper.png; exec --no-startup-id dbus-send --system --print-reply --dest='org.freedesktop.UPower' /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+bindsym Control+Mod1+k exec --no-startup-id dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
 
 # kill focused window
 bindsym $mod+Shift+q kill
