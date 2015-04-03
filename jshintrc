@@ -1,0 +1,7 @@
+{
+  "maxerr": 300,
+  "unused": true,
+  "es3": true,
+  "browser": true,
+  "jquery": true
+}
