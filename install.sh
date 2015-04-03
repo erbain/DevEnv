@@ -71,6 +71,9 @@ install_vim() {
   cd ./vim/bundle/tern_for_vim
   npm install
 
+  # Install JShint
+  sudo npm install jshint -g
+
   cd $INSTALL_DIR
 }
 
