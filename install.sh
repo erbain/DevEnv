@@ -97,6 +97,7 @@ install_zsh() {
     ln -si $INSTALL_DIR/zsh/zshrc ~/.zshrc
   fi
   cp -R $INSTALL_DIR/zsh/oh-my-zsh_custom/* $INSTALL_DIR/zsh/oh-my-zsh/custom/
+  echo 'stty -ixon' >> ~/.zshenv
   echo "Setting default shell to zsh"
   chsh -s /bin/zsh
 }

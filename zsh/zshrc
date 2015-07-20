@@ -75,3 +75,5 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
+
+setopt noflowcontrol
