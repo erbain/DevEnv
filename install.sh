@@ -9,7 +9,7 @@ INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_debs() {
   echo "++ Installing debs ++"
   sudo apt-get update
-  sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux
+  sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux npm fontconfig
 }
 
 
@@ -131,9 +131,9 @@ install_tmux() {
 
 #install_debs
 #install_vim
-#install_font
-#install_zsh
-#install_tmux
+install_font
+install_zsh
+install_tmux
 install_i3
 
 echo "All Done"
