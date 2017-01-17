@@ -125,15 +125,21 @@ install_tmux() {
   if [[ -e ~/.tmux.conf ]]; then
     rm ~/.tmux.conf
   fi
+  if [[ ! -d ~/.tmux/plugins ]]; then
+    mkdir -p ~/.tmux/plugins/
+  fi
+  if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+
   ln -s $INSTALL_DIR/tmux/tmux.conf ~/.tmux.conf
 }
 
 
 #install_debs
 #install_vim
-install_font
-install_zsh
-install_tmux
-install_i3
+#install_font
+#install_zsh
+#install_tmux
 
 echo "All Done"
