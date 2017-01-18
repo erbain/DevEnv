@@ -23,13 +23,6 @@ install_vim() {
     git clone https://github.com/erbain/vim.git ./vim
   fi
 
-  if [[ -e "$INSTALL_DIR/vim/bundle/vundle" ]]; then
-    cd $INSTALL_DIR/vim/bundle/vundle
-    git pull
-  else
-    git clone https://github.com/gmarik/vundle.git $INSTALL_DIR/vim/bundle/vundle
-  fi
-
   cd $INSTALL_DIR
 
   if [[ -e ~/.vimrc ]]; then
@@ -60,16 +53,7 @@ install_vim() {
   ln -s $INSTALL_DIR/vim/ ~/.vim
 
   # Install vundle bundles
-  vim -c "execute \"BundleInstall\" | q | q"
-
-  # Build YouCompleteMe
-  cd ./vim/bundle/YouCompleteMe
-  ./install.sh
-
-  # Install tern dependencies
-  cd $INSTALL_DIR
-  cd ./vim/bundle/tern_for_vim
-  npm install
+  vim -c "execute \"PlugInstall\" | q | q"
 
   # Install JShint
   sudo npm install jshint -g
