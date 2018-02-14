@@ -8,6 +8,8 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="ewan"
 
+export ANDROID_HOME="/home/ewan/Android/Sdk"
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -55,8 +57,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/sbin:/usr/sbin:/home/ewan/bin:/user/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="/sbin:/usr/sbin:/home/ewan/bin:/user/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/ewan/Android/Sdk/platform-tools:/home/ewan/Android/Sdk/tools:/opt/android-studio/gradle/gradle-3.2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
