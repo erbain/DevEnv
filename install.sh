@@ -12,6 +12,20 @@ install_debs() {
   sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux npm fontconfig
 }
 
+install_nvim() {
+  echo "++ Installing nvim ++ $INSTALL_DIR"
+  if [[ ! -d /opt/bin ]]; then
+    sudo mkdir -p /opt/bin
+    sudo chown ewan /opt/bin
+  fi
+  wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/bin/nvim.appimage
+  chmod u+x /opt/bin/nvim.appimage
+  ln -s /opt/bin/nvim.appimage /opt/bin/nvim
+  if [[ ! -d ~/.config/nvim/ ]]; then
+    mkdir -p ~/.config/nvim/
+  fi
+  ln -s $INSTALL_DIR/nvim/init.vim ~/.config/nvim/init.vim
+}
 
 install_vim() {
   echo "++ Installing vim config ++ $INSTALL_DIR"
@@ -135,9 +149,8 @@ install_terminator() {
 
 #install_debs
 #install_vim
+install_nvim
 #install_font
 #install_zsh
 #install_tmux
-install_terminator
-
-echo "All Done"
+#install_terminator
