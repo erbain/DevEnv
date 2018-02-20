@@ -283,6 +283,8 @@ vnoremap <Space> zf
 
 " PLUGIN SPECIFIC MAPPINGS AND CONFIG
 
+let g:airline_powerline_fonts = 1
+
 " CtrlP Settings
 nnoremap <leader>f :CtrlP<CR>
 " leader d to CtrlP files in the same dir as the current file

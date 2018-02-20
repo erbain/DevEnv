@@ -9,7 +9,7 @@ INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_debs() {
   echo "++ Installing debs ++"
   sudo apt-get update
-  sudo apt-get install build-essential cmake python-dev exuberant-ctags nodejs zsh tmux npm fontconfig
+  sudo apt-get install build-essential cmake python-dev python3-pip exuberant-ctags nodejs zsh tmux npm fontconfig
 }
 
 install_nvim() {
@@ -18,13 +18,25 @@ install_nvim() {
     sudo mkdir -p /opt/bin
     sudo chown ewan /opt/bin
   fi
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/bin/nvim.appimage
+
+  pip3 install neovim
+  curl -fLo /opt/bin/nvim.appimage --create-dirs \
+    https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
   chmod u+x /opt/bin/nvim.appimage
+  rm -f /opt/bin/nvim
   ln -s /opt/bin/nvim.appimage /opt/bin/nvim
   if [[ ! -d ~/.config/nvim/ ]]; then
     mkdir -p ~/.config/nvim/
   fi
+
+  rm -f ~/.config/nvim/init.vim
   ln -s $INSTALL_DIR/nvim/init.vim ~/.config/nvim/init.vim
+
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+   # Install vim-plug bundles
+  /opt/bin/nvim -c "execute \"PlugInstall\" | q | q"
 }
 
 install_vim() {
@@ -147,7 +159,7 @@ install_terminator() {
 }
 
 
-#install_debs
+install_debs
 #install_vim
 install_nvim
 #install_font
