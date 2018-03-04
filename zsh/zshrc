@@ -21,7 +21,7 @@ export ANDROID_HOME="/home/ewan/Android/Sdk"
 DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -33,7 +33,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -43,7 +43,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -51,13 +51,13 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras bower npm perl tmux common-aliases)
+plugins=(debian git git-extras bower npm node ng sudo perl tmux common-aliases)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/sbin:/usr/sbin:/home/ewan/bin:/opt/bin:/user/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/ewan/Android/Sdk/platform-tools:/home/ewan/Android/Sdk/tools:/opt/android-studio/gradle/gradle-3.2/bin"
+export PATH="$HOME/.cargo/bin:/sbin:/usr/sbin:/home/ewan/bin:/opt/bin:/user/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/ewan/Android/Sdk/platform-tools:/home/ewan/Android/Sdk/tools:/opt/android-studio/gradle/gradle-3.2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 
@@ -74,7 +74,7 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_dsa"
 
-alias tmux="TERM=screen-256color-bce tmux" 
+#alias tmux="TERM=screen-256color-bce tmux" 
 
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward

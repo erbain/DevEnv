@@ -76,7 +76,8 @@ Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
 
 " Theme
-Plug 'iCyMind/NeoSolarized'
+"Plug 'iCyMind/NeoSolarized'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -152,8 +153,8 @@ set shortmess+=I
 
 set termguicolors
 set background=dark
-colorscheme NeoSolarized 
-let g:solarized_termtrans=1 
+colorscheme gruvbox
+"let g:solarized_termtrans=1 
 
 " Set the currsor to be a rectangle in visual mode and a line in insert mode
 if &term =~ '^screen'
@@ -283,8 +284,6 @@ vnoremap <Space> zf
 
 " PLUGIN SPECIFIC MAPPINGS AND CONFIG
 
-let g:airline_powerline_fonts = 1
-
 " CtrlP Settings
 nnoremap <leader>f :CtrlP<CR>
 " leader d to CtrlP files in the same dir as the current file
@@ -351,3 +350,7 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 call neomake#configure#automake('nw', 750)
 let g:neomake_open_list = 2
 
+
+" Airline
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1

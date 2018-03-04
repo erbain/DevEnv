@@ -9,7 +9,19 @@ INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_debs() {
   echo "++ Installing debs ++"
   sudo apt-get update
-  sudo apt-get install build-essential cmake python-dev python3-pip exuberant-ctags nodejs zsh tmux npm fontconfig
+  sudo apt-get install build-essential cmake python-dev python3-pip exuberant-ctags nodejs zsh tmux npm fontconfig libfreetype6-dev libfontconfig1-dev xclip
+}
+
+install_alacritty() {
+  echo "++ Installing alacritty ++ $INSTALL_DIR"
+
+  curl https://sh.rustup.rs -sSf | sh
+  source $HOME/.cargo/env
+  rustup override set stable
+  rustup update stable
+  mkdir -p ~/.config/alacritty/
+  ln -s $INSTALL_DIR/alacritty.yml ~/.config/alacritty/alacritty.yml
+  cargo install --git https://github.com/jwilm/alacritty
 }
 
 install_nvim() {
@@ -91,7 +103,7 @@ install_vim() {
 install_font() {
   echo "++ Installing Fonts ++"
   mkdir -p ~/.fonts
-  cp $INSTALL_DIR/fonts/Inconsolata-dz\ for\ Powerline.otf ~/.fonts/
+  cp $INSTALL_DIR/fonts/Inconsolata\ Nerd\ Font\ Complete.otf ~/.fonts/
   fc-cache -vf ~/.fonts
 }
 
@@ -159,10 +171,10 @@ install_terminator() {
 }
 
 
-install_debs
+#install_debs
 #install_vim
-install_nvim
-#install_font
+#install_nvim
+install_font
 #install_zsh
 #install_tmux
 #install_terminator
