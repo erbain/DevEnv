@@ -157,24 +157,13 @@ install_tmux() {
   ln -s $INSTALL_DIR/tmux/tmux.conf ~/.tmux.conf
 }
 
-
-install_terminator() {
-  echo "++ Installing terminator config ++"
-  if [[ -e ~/.confg/terminator/config ]]; then
-    rm ~/.confg/terminator/config
-  fi
-  if [[ ! -d ~/.confg/terminator ]]; then
-    mkdir -p ~/.confg/terminator
-  fi
-
-  cp $INSTALL_DIR/terminator.config ~/.confg/terminator/config
-}
-
-
-#install_debs
+install_debs
 #install_vim
-#install_nvim
+install_nvim
 install_font
-#install_zsh
+install_zsh
 #install_tmux
-#install_terminator
+#install_font
+install_alacritty
+
+echo "All Done"

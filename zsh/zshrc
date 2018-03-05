@@ -56,16 +56,18 @@ plugins=(debian git git-extras bower npm node ng sudo perl tmux common-aliases)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH="$HOME/.cargo/bin:/sbin:/usr/sbin:/opt/jdk/bin:/home/ewan/Android/Sdk/tools:/home/ewan/Android/Sdk/tools/bin:/home/ewan/Android/Sdk/platform-tools:/home/ewan/bin:/user/sbin:/opt/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 
-export PATH="$HOME/.cargo/bin:/sbin:/usr/sbin:/home/ewan/bin:/opt/bin:/user/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/ewan/Android/Sdk/platform-tools:/home/ewan/Android/Sdk/tools:/opt/android-studio/gradle/gradle-3.2/bin"
+export JAVA_HOME="/opt/jdk"
+export ANDROID_HOME="/home/ewan/Android/Sdk/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='nvim'
  else
-   export EDITOR='vim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -80,3 +82,7 @@ bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
 
 setopt noflowcontrol
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/ewan/.sdkman"
+[[ -s "/home/ewan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ewan/.sdkman/bin/sdkman-init.sh"
