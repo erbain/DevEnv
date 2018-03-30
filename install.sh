@@ -157,13 +157,13 @@ install_tmux() {
   ln -s $INSTALL_DIR/tmux/tmux.conf ~/.tmux.conf
 }
 
-install_debs
+#install_debs
 #install_vim
-install_nvim
+#install_nvim
 install_font
-install_zsh
+#install_zsh
 #install_tmux
 #install_font
-install_alacritty
+#install_alacritty
 
 echo "All Done"

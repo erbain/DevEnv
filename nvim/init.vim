@@ -354,3 +354,6 @@ let g:neomake_open_list = 2
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
+
+let g:yankring_clipboard_monitor=0
+
