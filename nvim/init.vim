@@ -46,6 +46,9 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
+" Add Bracket based shortcuts
+Plug 'tpope/vim-unimpaired'
+
 " <leader><leader> motion allows quick jumping to nearby file locations
 Plug 'Lokaltog/vim-easymotion'
 
@@ -295,6 +298,8 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:5,max:20,results:50'
 let g:ctrlp_max_files = 50000
 let g:ctrlp_clear_cache_on_exit = 0
 "let g:ctrlp_follow_symlinks = 1
+" Use vim working directory as root for ctrlp search
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)|dist|node_modules|bower_components$',
   \ 'file': '\v(\.(exe|so|dll|tar|gz|swp|bin|zip|tgz))|(-min.js|.min.js)$',
@@ -347,9 +352,12 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 " NeoMake setup
 " When writing a buffer, and on normal mode changes (after 750ms).
-call neomake#configure#automake('nw', 750)
-let g:neomake_open_list = 2
-
+call neomake#configure#automake('nw', 100)
+let g:neomake_open_list = 0
+let g:neomake_remove_invalid_entries = 1
+let g:neomake_logfile = '/home/ewan/neomake_log'
+let g:neomake_perl_perlcritic_tempfile_enabled = 0
+let g:neomake_perl_perl_args = ['-c', '-X', '-Mwarnings', '-I', './', '-I', './lib', '-I', './t/lib', '-I', '/home/ewan/dev/vX/WCN/lib']
 
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
