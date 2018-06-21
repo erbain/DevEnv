@@ -46,6 +46,9 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
+" Keep tags file updated
+Plug 'ludovicchabant/vim-gutentags'
+
 " Add Bracket based shortcuts
 Plug 'tpope/vim-unimpaired'
 
@@ -66,7 +69,9 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Frontend HTML / JS / CSS plugins
 Plug 'hail2u/vim-css3-syntax'
-Plug 'pangloss/vim-javascript'
+
+" Syntax and indentation support for 114 languages
+Plug 'sheerun/vim-polyglot'
 
 " Show CSS colours with color as background
 Plug 'ap/vim-css-color'
@@ -331,6 +336,8 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 
+" gutentags config.
+let g:gutentags_cache_dir = '/home/ewan/.gutentags/'
 
 " Enable fugitive
 let g:statline_fugitive = 1 
@@ -364,4 +371,10 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 
 let g:yankring_clipboard_monitor=0
+
+" Ctrl t toggles the tag list plugin
+nmap <C-t> <Esc>:TagbarToggle<CR>
+
+" Jump to the tagbar window when opened
+let g:tagbar_autofocus = 1
 

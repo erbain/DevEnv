@@ -43,7 +43,9 @@ install_nvim() {
   fi
 
   rm -f ~/.config/nvim/init.vim
-  sudo ln -s $INSTALL_DIR/nvim/init.vim ~/.config/nvim/init.vim
+  ln -s $INSTALL_DIR/nvim/init.vim ~/.config/nvim/init.vim
+  ln -s $INSTALL_DIR/nvim/ftdetect ~/.config/nvim/
+  ln -s $INSTALL_DIR/nvim/indent ~/.config/nvim/
 
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
