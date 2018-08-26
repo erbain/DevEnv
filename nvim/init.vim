@@ -39,8 +39,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " Multi-entry selection UI.
 Plug 'junegunn/fzf'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'mhartington/nvim-typescript'
+Plug 'Shougo/denite.nvim'
 Plug 'wokalski/autocomplete-flow'
 " For func argument completion
 Plug 'Shougo/neosnippet'
@@ -313,6 +315,8 @@ let g:ctrlp_custom_ignore = {
 call ctrlp_bdelete#init()
 
 let g:used_javascript_libs = 'jquery,angularjs,requirejs'
+
+"let g:node_host_prog = '/usr/bin/neovim-node-host'
 
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
