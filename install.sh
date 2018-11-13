@@ -32,7 +32,7 @@ install_nvim() {
   fi
 
   pip3 install neovim
-  curl -fLo /opt/bin/nvim.appimage --create-dirs https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
+  curl -fLo /opt/bin/nvim.appimage --create-dirs https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage 
   chmod u+x /opt/bin/nvim.appimage
   rm -f /opt/bin/nvim
   sudo ln -s /opt/bin/nvim.appimage /opt/bin/nvim
