@@ -56,9 +56,9 @@ plugins=(debian git git-extras bower npm node ng sudo perl tmux common-aliases)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/.cargo/bin:/sbin:/usr/sbin:/opt/jdk/bin:/home/ewan/Android/Sdk/tools:/home/ewan/Android/Sdk/tools/bin:/home/ewan/Android/Sdk/platform-tools:/home/ewan/bin:/user/sbin:/opt/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="$HOME/.cargo/bin:/sbin:/usr/sbin:/opt/android-studio/gradle/gradle-4.4/bin:/home/ewan/Android/Sdk/tools:/home/ewan/Android/Sdk/tools/bin:/home/ewan/Android/Sdk/platform-tools:/home/ewan/bin:/user/sbin:/opt/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 
-export JAVA_HOME="/opt/jdk"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME="/home/ewan/Android/Sdk/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
